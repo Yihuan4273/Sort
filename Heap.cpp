@@ -1,13 +1,3 @@
-/*¶ÑÅÅĞò
-ÏÈ¹¹½¨¶Ñ 
-	Èç¹ûÒª´ÓĞ¡µ½´óÅÅĞòÔò¹¹½¨´ó¸ù¶Ñ 
-	Èç¹ûÒª´Ó´óµ½Ğ¡ÅÅĞò£¬ÔòÒªĞ¡¸ù¶Ñ
-´Ó×îºóÒ»¸ö½ÚµãµÄ¸¸½Úµã¿ªÊ¼½øĞĞheapfy£¨²»¶Ï¸üĞÂÃ¿¸ö½ÚµãµÄÎ»ÖÃ£©
-
-¹¹½¨ºÃ¶ÑÒÔºó£¬½øĞĞ¶ÑÅÅĞò£»
-½»»»¶Ñ¶¥ÔªËØºÍ×îºóÒ»¸öÔªËØ£¬ÔÙ½øĞĞ¹¹½¨¶Ñ£¨¶ÑµÄÔªËØ¸öÊı¼õÒ» ²»¶ÏÑ­»·£©
-*/
-
 #include<iostream>
 #include<vector>
 #include<algorithm>
@@ -21,7 +11,7 @@ void swap(vector<int>& ans, int i, int j) {
 	ans[i] = ans[i] ^ ans[j];
 }
 
-void heapfy(vector<int>& tree,int n,int i) {//¸üĞÂ¶ÑµÄ¸¸×Ó½Úµã Ê¹ÆäÂú×ã¶ÑµÄ¹æÔò
+void heapfy(vector<int>& tree,int n,int i) {//æ›´æ–°å †çš„çˆ¶å­èŠ‚ç‚¹ ä½¿å…¶æ»¡è¶³å †çš„è§„åˆ™
 	if (i >= n) {
 		return;
 	}
@@ -38,7 +28,7 @@ void heapfy(vector<int>& tree,int n,int i) {//¸üĞÂ¶ÑµÄ¸¸×Ó½Úµã Ê¹ÆäÂú×ã¶ÑµÄ¹æÔò
 	}
 }
 
-void build_heap(vector<int>& tree, int n) {//¹¹½¨¶Ñ
+void build_heap(vector<int>& tree, int n) {//æ„å»ºå †
 	int last = n - 1;
 	int parent = (last - 1) / 2;
 	for (int i = parent; i >= 0; --i) {
@@ -46,7 +36,7 @@ void build_heap(vector<int>& tree, int n) {//¹¹½¨¶Ñ
 	}
 }
 
-void heap_sort(vector<int>& tree, int n) {//¶ÑÅÅĞò
+void heap_sort(vector<int>& tree, int n) {//å †æ’åº
 	build_heap(tree, n);
 	for (int i = n-1; i > 0; --i) {
 		swap(tree, i, 0);
@@ -56,20 +46,20 @@ void heap_sort(vector<int>& tree, int n) {//¶ÑÅÅĞò
 
 int main()
 {
-	vector<int>tree(max_size,0);//´´½¨Êı×é²¢½øĞĞ¸³Öµ ²¢½øĞĞ´òÓ¡
+	vector<int>tree(max_size,0);//åˆ›å»ºæ•°ç»„å¹¶è¿›è¡Œèµ‹å€¼ å¹¶è¿›è¡Œæ‰“å°
 	for (int i = 0; i < max_size; ++i) {
 		//srand(time(0));
 		tree[i] = rand() % max_num + 1;
 	}
-	cout << "¶ÑÅÅĞòÒÔÇ°£º" << endl;
+	cout << "å †æ’åºä»¥å‰ï¼š" << endl;
 	for (int num : tree) {
 		cout << num << "  ";
 	}cout << endl;
 
-	//¶ÑÅÅĞò  ²¢´òÓ¡
+	//å †æ’åº  å¹¶æ‰“å°
 	heap_sort(tree, max_size);
 
-	cout << "¶ÑÅÅĞòÒÔºó£º" << endl;
+	cout << "å †æ’åºä»¥åï¼š" << endl;
 	for (int num : tree) {
 		cout << num << "  ";
 	}cout << endl;
