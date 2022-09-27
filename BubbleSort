@@ -1,0 +1,38 @@
+//冒泡排序：思想是通过n轮，每轮每相邻的两个数进行比较，每一轮得到一个最小或最大的数
+#include<iostream>
+#include<iostream>
+using namespace std;
+int main()
+{
+  cout<<"请输入数组的大小N："<<endl;
+  int N;cin>>N;
+  cout<<"请输入N个数字，并以空格区分"<<endl;
+  vector<int>ans(N,0);
+  for(int i=0;i<N;++i){
+    int num;
+    cin>>num;
+    ans[i]=num;
+  }
+  
+cout<<"经过排序前的数组为："<<endl;
+for(int num:ans){
+  cout<<num<<" ";
+}cout<<endl;
+
+ for(int i=0;i<N;++i){
+   for(int j=0;j<N-1;++j){
+     if(ans[j]<ans[j+1]){
+       ans[j]=ans[j]^ans[j+1];
+       ans[i]=ans[j]^ans[j+1];
+       ans[j]=ans[j]^ans[j+1];
+     }  
+  }
+}
+
+cout<<"经过冒泡排序后的数组为："<<endl;
+for(int num:ans){
+  cout<<num<<" ";
+}cout<<endl;
+
+  return 0;
+}
